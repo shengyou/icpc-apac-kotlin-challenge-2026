@@ -6,6 +6,12 @@
 * `src/main/kotlin/challenge*` - All "challenges" and "solutions" source code
 * `src/test/kotlin/*Challenge*Tests.kt` - Test cases for challenges
 
+## Challenges
+
+* [Challenge 1](https://codeforces.com/contest/2068/problem/J)
+* [Challenge 2](https://codeforces.com/contest/2068/problem/C)
+* [Challenge 3](https://codeforces.com/contest/2068/problem/F)
+
 ## What we can show in this repository
 
 * IDE
