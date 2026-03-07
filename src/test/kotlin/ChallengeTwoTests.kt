@@ -69,5 +69,61 @@ class ChallengeTwoTests : ExpectSpec({
             // assert
             result shouldBe 1
         }
+
+        expect("single video should have no ads") {
+            val n = 1
+            val k = 10
+            val d = listOf(5)
+
+            challengeResolver2(n, k, d) shouldBe 0
+        }
+
+        expect("each video triggers time ad") {
+            val n = 3
+            val k = 10
+            val d = listOf(10, 10, 10)
+
+            challengeResolver2(n, k, d) shouldBe 2
+        }
+
+        expect("pack three videos per segment") {
+            val n = 6
+            val k = 100
+            val d = listOf(1, 1, 1, 1, 1, 1)
+
+            challengeResolver2(n, k, d) shouldBe 1
+        }
+
+        expect("cannot pair videos due to time") {
+            val n = 3
+            val k = 10
+            val d = listOf(6, 6, 6)
+
+            challengeResolver2(n, k, d) shouldBe 1
+        }
+
+        expect("break skips remaining videos") {
+            val n = 5
+            val k = 10
+            val d = listOf(1, 2, 3, 8, 9)
+
+            challengeResolver2(n, k, d) shouldBe 1
+        }
+
+        expect("break instead of continue fails") {
+            val n = 4
+            val k = 10
+            val d = listOf(1, 2, 8, 9)
+
+            challengeResolver2(n, k, d) shouldBe 1
+        }
+
+        expect("break causes early termination") {
+            val n = 5
+            val k = 4
+            val d = listOf(1, 2, 8, 8, 8)
+
+            challengeResolver2(n, k, d) shouldBe 2
+        }
     }
 })
