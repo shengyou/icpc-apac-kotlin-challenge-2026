@@ -40,5 +40,14 @@ class ChallengeOneTests : ExpectSpec({
             // assert
             result shouldBe true
         }
+
+        expect("using any instead of all should fail") {
+            val n = 6
+            val s = "RWWRWWRRRWRR"
+
+            val result = challengeResolver1(n, s)
+
+            result shouldBe false
+        }
     }
 })
