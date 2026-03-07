@@ -9,10 +9,6 @@ fun challengeResolver3(d: List<String>, t: String): String {
             while (pt[i] < d[i].length && d[i][pt[i]] != tC) {
                 ans.append(d[i][pt[i]++])
             }
-
-            if (pt[i] < d[i].length && d[i][pt[i]] == tC) {
-                pt[i]++
-            }
         }
         notFinished = notFinished.filter {
             pt[it] < d[it].length
@@ -20,6 +16,12 @@ fun challengeResolver3(d: List<String>, t: String): String {
         if (notFinished.isEmpty()) return ans.toString()
 
         ans.append(tC)
+
+        for (i in notFinished) {
+            if (pt[i] < d[i].length && d[i][pt[i]] == tC) {
+                pt[i]++
+            }
+        }
     }
 
     return ""

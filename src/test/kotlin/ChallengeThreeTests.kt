@@ -65,5 +65,48 @@ class ChallengeThreeTests : ExpectSpec({
 
             isSubsequence(t, result) shouldBe false
         }
+
+        expect("edge case 1: empty d and t should be unsolvable") {
+            val d = listOf<String>()
+            val t = ""
+
+            val ans = challengeResolver3(d, t)
+
+            // expected NO -> empty string
+            ans shouldBe ""
+        }
+
+        expect("edge case 2: single character strings in d and t") {
+            val d = listOf("a", "b", "c")
+            val t = "d"
+
+            val ans = challengeResolver3(d, t)
+
+            (ans == "") shouldBe false
+            d.forEach { s -> isSubsequence(s, ans) shouldBe true }
+            isSubsequence(t, ans) shouldBe false
+        }
+
+        expect("error case 1: pointer does not advance when tC matches d[i][pt[i]]") {
+            val d = listOf("ab")
+            val t = "aa"
+
+            val ans = challengeResolver3(d, t)
+
+            (ans == "") shouldBe false
+            d.forEach { s -> isSubsequence(s, ans) shouldBe true }
+            isSubsequence(t, ans) shouldBe false
+        }
+
+        expect("error case 2: pointer does not advance when tC matches d[i][pt[i]]") {
+            val d = listOf("ab")
+            val t = "bb"
+
+            val ans = challengeResolver3(d, t)
+
+            (ans == "") shouldBe false
+            d.forEach { s -> isSubsequence(s, ans) shouldBe true }
+            isSubsequence(t, ans) shouldBe false
+        }
     }
 })
